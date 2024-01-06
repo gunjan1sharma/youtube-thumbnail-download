@@ -43,47 +43,13 @@ export type ResponseKeyValueArray = [string, any][];
 
 export interface Root {
   message: string;
-  downloadableFormats: DownloadableFormat[];
+  thumbnails: Thumbnails[];
 }
 
-export interface DownloadableFormat {
-  mimeType: string;
-  qualityLabel: any;
-  bitrate: number;
-  audioBitrate: number;
-  itag: number;
-  initRange: InitRange;
-  indexRange: IndexRange;
-  lastModified: string;
-  contentLength: string;
-  quality: string;
-  projectionType: string;
-  averageBitrate: number;
-  audioQuality: string;
-  approxDurationMs: string;
-  audioSampleRate: string;
-  audioChannels: number;
-  loudnessDb: number;
+export interface Thumbnails {
   url: string;
-  hasVideo: boolean;
-  hasAudio: boolean;
-  container: string;
-  codecs: string;
-  videoCodec: any;
-  audioCodec: string;
-  isLive: boolean;
-  isHLS: boolean;
-  isDashMPD: boolean;
-  highReplication?: boolean;
+  width: number;
+  height: number;
 }
 
-export interface InitRange {
-  start: string;
-  end: string;
-}
-
-export interface IndexRange {
-  start: string;
-  end: string;
-}
 
