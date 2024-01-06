@@ -204,7 +204,7 @@ function UpMenu(props: any) {
             style={{ color: headingColor }}
             className="p-5 text-center font-sans text-sm md:text-4xl font-extrabold"
           >
-           Youtube Video Downloader+
+           Youtube Audio Downloader+
           </h1>
         </div>
 

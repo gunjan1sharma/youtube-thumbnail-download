@@ -16,9 +16,9 @@ function Footer(props: any) {
   function heading(heading: string, url: string): JSX.Element {
     return (
       <Link to={url}>
-        <h4 className="text-white text-sm text-centre font-bold hover:cursor-pointer">
+        <h5 style={{ fontSize: "13px" }} className="text-white text-centre">
           {heading}
-        </h4>
+        </h5>
       </Link>
     );
   }
@@ -28,8 +28,8 @@ function Footer(props: any) {
       <div className="h-340px w-full mt-24 flex flex-col items-center justify-between bg-black">
         <div className="w-full m-5 flex items-center justify-center">
           <img alt="" src={LogoImage} className="w-7 h-7" />
-          <h1 className="text-center ml-4 text-white font-sans text-lg font-bold">
-            Youtube Video Downloader+
+          <h1 className="text-center ml-4 text-white text-xl font-bold">
+            Youtube Audio Downloader+
           </h1>
         </div>
 
