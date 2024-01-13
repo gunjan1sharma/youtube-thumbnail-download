@@ -13,6 +13,13 @@ export interface SingleColorProps {
   deleteColor: (id: string) => void;
 }
 
+export interface SimpleIntroProps {
+  tag?: string;
+  heading: string;
+  subtitle: string;
+  btntext: string;
+}
+
 export interface IPGeolocationResponse {
   ip: string;
   isp: string;

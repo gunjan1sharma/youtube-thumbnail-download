@@ -16,7 +16,10 @@ function Footer(props: any) {
   function heading(heading: string, url: string): JSX.Element {
     return (
       <Link to={url}>
-        <h5 style={{ fontSize: "13px" }} className="text-white text-centre">
+        <h5
+          style={{ fontSize: "13px" }}
+          className="text-white text-centre ml-5 mt-2 sm:mt-2"
+        >
           {heading}
         </h5>
       </Link>
@@ -28,57 +31,83 @@ function Footer(props: any) {
       <div className="h-340px w-full mt-24 flex flex-col items-center justify-between bg-black">
         <div className="w-full m-5 flex items-center justify-center">
           <img alt="" src={LogoImage} className="w-7 h-7" />
-          <h1 className="text-center ml-4 text-white text-sm md:text-xl font-bold">
-            Youtube Thumbnail Downloader+
+          <h1 className="text-center ml-4 text-white text-xl font-bold">
+            Youtube Thumbnail
           </h1>
         </div>
 
         <div className="w-100%">
           <div className="p-5 container grid grid-cols-3 md:grid-cols-4 gap-2 w-full">
             {heading(
-              "Youtube Video Downloader",
-              "https://en.wikipedia.org/wiki/Web_colors"
+              "Youtube Video",
+              "https://youtubevideo-downloader.netlify.app"
             )}
             {heading(
-              "Youtube Audio Downloader",
-              "https://en.wikipedia.org/wiki/Web_colors"
+              "Youtube Audio",
+              "https://youtubeaudio-downloader.netlify.app"
             )}
             {heading(
-              "Youtube Shorts Downloader",
-              "https://en.wikipedia.org/wiki/Web_colors"
+              "Youtube Shorts",
+              "https://youtubeshorts-downloader.netlify.app"
             )}
             {heading(
-              "Youtube Thumbnail Downloader",
-              "https://en.wikipedia.org/wiki/Web_colors"
+              "Youtube Thumbnail",
+              "https://youtubethumbnail-downloader.netlify.app"
             )}
 
             {heading(
-              "Facebook Video Downloader",
-              "https://en.wikipedia.org/wiki/Web_colors"
+              "Facebook Video",
+              "https://facebookvideo-downloader.web.app"
             )}
+            {heading("Facebook Shorts", "https://facebook-shorts.web.app")}
             {heading(
-              "Facebook Audio Downloader",
-              "https://en.wikipedia.org/wiki/Web_colors"
-            )}
-            {heading(
-              "Facebook Thumbnail Downloader",
-              "https://en.wikipedia.org/wiki/Web_colors"
+              "Facebook Thumbnail",
+              "https://facebook-thumbnail.web.app"
             )}
 
             {heading(
-              "Instagram Video Downloader",
-              "https://en.wikipedia.org/wiki/Web_colors"
+              "Instagram Video",
+              "https://instagramvideo-downloader.web.app"
             )}
             {heading(
-              "Instagram Audio Downloader",
-              "https://en.wikipedia.org/wiki/Web_colors"
+              "Instagram Reels",
+              "https://instagramreels-downloader.web.app"
             )}
             {heading(
-              "Instagram Thumbnail Downloader",
-              "https://en.wikipedia.org/wiki/Web_colors"
+              "Instagram Thumbnail",
+              "https://instagram-thumbnail.web.app"
             )}
+
+            {heading("Whois Lookup", "https://whois-lookups.web.app")}
+            {heading("Geolocation Data", "https://geolocationq.web.app")}
+            {heading("Seo Parser", "https://seo-scrapers.web.app")}
+            {heading("Link Scrapper", "https://links-scrapper.web.app")}
+            {heading("Images Scrapper", "https://images-scrapper.web.app")}
+            {heading("Media Scrapper", "https://medias-scrapper.web.app")}
+
+            {heading("Script Scrapper", "https://javascript-scrapper.web.app")}
+            {heading("Semantic Parser", "https://semantic-scrapper.web.app")}
+            {heading("Keyword Lookup", "https://keywords-lookup.web.app")}
           </div>
         </div>
+
+        <br />
+        <div className="border p-2 border-dashed border-gray-400">
+          <Link to="https://www.geekforce.in" target="_blank">
+            <h4 className="text-white text-xs">
+              A Product From GeekForce Technologies
+            </h4>
+          </Link>
+          <Link
+            target="_blank"
+            to="https://www.linkedin.com/in/gunjan-sharma-a74332251/"
+          >
+            <h4 className="text-white text-xs mt-1">
+              Owned & Envisoned By Gunjan Sharma
+            </h4>
+          </Link>
+        </div>
+        <br />
 
         <div className="m-4">
           <h5 className="text-center text-white font-sans text-xs font-bold">

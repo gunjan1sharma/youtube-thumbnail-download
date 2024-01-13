@@ -7,13 +7,21 @@ import {
   TextField,
 } from "@mui/material";
 import DownloadImage from "../assets/images/download.png";
-import React, { ChangeEventHandler, useState } from "react";
+import React, {
+  ChangeEventHandler,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import ReactPlayer from "react-player";
 import axios from "axios";
 import { Root } from "../extras/types";
 import Thumbnail from "../components/Thumbnail";
+import { ColorContext } from "../extras/ColorContext";
+import FeatureIntro from "../components/FeatureIntro";
 
-const API_BASE_URL = `http://192.168.1.88:3003/extras/v1/api/youtube/download-thumbnail?videoUrl=`;
+const API_BASE_URL = `https://appnor-backend.onrender.com/extras/v1/api/youtube/download-thumbnail?videoUrl=`;
 var static_video_url = "";
 
 const sampleResponse: Root = {
@@ -48,12 +56,19 @@ const sampleResponse: Root = {
 };
 
 function HomePage(props: any) {
+  const colorContex = useContext(ColorContext);
+  const scrollRef = useRef<any>(null);
   const [videoUrl, setVideoUrl] = useState("");
   const [audioResponse, setAudioResponse] = useState<Root>(sampleResponse);
   const [playVideo, setPlayVideo] = useState(false);
-  const [isTermsAggred, setIsTermsAggred] = useState(true);
+  const [isTermsAggred, setIsTermsAggred] = useState(false);
   const [isDownloadSuccess, setIsDownloadSuccess] = useState(false);
   const [open, setOpen] = React.useState(false);
+
+  useEffect(() => {
+    scrollToDiv();
+    return () => {};
+  }, [colorContex.point]);
 
   const handleClose = () => {
     setOpen(false);
@@ -152,6 +167,13 @@ function HomePage(props: any) {
     window.open(audioUrl, "_blank");
   }
 
+  function scrollToDiv() {
+    if (colorContex.point !== 0) {
+      scrollRef.current.scrollIntoView({ behavior: "smooth" });
+      colorContex.setPoint(0);
+    }
+  }
+
   const backdrop = (
     <React.Fragment>
       <Backdrop
@@ -170,9 +192,17 @@ function HomePage(props: any) {
   );
 
   return (
-    <div className="m-10 flex flex-col items-center justify-cente">
+    <div
+      ref={scrollRef}
+      className="md:m-10 sm:m-5 flex flex-col items-center justify-center"
+    >
       {backdrop}
-      <div className="flex flex-col items-center border shadow-lg p-4">
+      <FeatureIntro
+        heading="Supercharged Youtube Thumbnail Downloader⚡️"
+        desc="Imagine a world where your favorite online media is yours to keep, not just to stream. With our tool, that world is real! Download high-quality videos, audio, reels, and even thumbnails – all from a single link, completely FREE!"
+        subheading="But it's not just about convenience – it's about freedom. Break free from limited playlists, buffering woes, and the ever-changing algorithms. Save your must-watch content for offline enjoyment.➡️"
+      />
+      <div className="flex flex-col items-center border border-gray-500 shadow-lg p-4">
         <TextField
           fullWidth
           value={videoUrl}
@@ -195,14 +225,14 @@ function HomePage(props: any) {
         >
           Play Video
         </Button>
-        <h3 className="text-xs text-center w-80 m-2">
+        <h3 className="text-xs text-center w-80 m-2 p-2">
           A direct prompt to download thumbnails will get triggered if video has
           only one format else a list of downloadable video will get presented.
         </h3>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center p-2">
           <Checkbox
             onChange={(e) => handleCheckboxChange(e.target.checked)}
-            defaultChecked
+            defaultChecked={false}
           />
           <h3 className="text-xs text-center m-2">
             By downloading thumbnails you agree to our terms & conditions for
@@ -256,6 +286,11 @@ function HomePage(props: any) {
             />
           );
         })}
+
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }
